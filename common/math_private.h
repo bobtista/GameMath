@@ -22,10 +22,10 @@
 #include <float.h>
 
 #ifdef BUILD_WITH_INTRINSICS
-#if defined _WIN32 && (defined _M_IX86 || defined _M_AMD64)
+#if defined _MSC_VER && (defined _M_IX86 || defined _M_AMD64)
 #include <intrin.h>
 #define USE_SSE 1
-#elif (defined __clang__ || defined __GNUC__) && (defined __i386__ || defined __amd64__)
+#elif (defined __clang__ || defined __GNUC__) && defined __SSE2__
 #include <x86intrin.h>
 #define USE_SSE 1
 #endif
